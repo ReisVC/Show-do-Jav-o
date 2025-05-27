@@ -4,6 +4,8 @@
 
 package com.mycompany.show_do_javao;
 
+import com.mycompany.show_do_javao.service.BancoPerguntas;
+
 /**
  *
  * @author Aluno
@@ -11,6 +13,11 @@ package com.mycompany.show_do_javao;
 public class Show_do_javao {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        BancoPerguntas perguntas = new BancoPerguntas();
+        
+        for(int i = 0; i < 20; i++) {
+        System.out.println(perguntas.getPerguntaAleatoria().getEnunciado());
+        }
+        
     }
 }
