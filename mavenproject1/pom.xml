@@ -11,4 +11,5 @@
         <maven.compiler.target>23</maven.compiler.target>
         <exec.mainClass>com.mycompany.mavenproject1.Mavenproject1</exec.mainClass>
     </properties>
+    <name>show_do_javao</name>
 </project>
