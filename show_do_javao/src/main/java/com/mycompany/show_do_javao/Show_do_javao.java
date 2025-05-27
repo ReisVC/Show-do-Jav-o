@@ -4,6 +4,8 @@
 
 package com.mycompany.show_do_javao;
 
+import com.mycompany.show_do_javao.view.TelaPerguntas;
+
 /**
  *
  * @author Aluno
@@ -11,6 +13,6 @@ package com.mycompany.show_do_javao;
 public class Show_do_javao {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new TelaPerguntas().setVisible(true);
     }
 }
