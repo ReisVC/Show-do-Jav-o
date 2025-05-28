@@ -12,6 +12,7 @@ import javax.swing.JLabel;
  * @author Aluno
  */
 public class TelaVitoria extends javax.swing.JFrame {
+
     ImageIcon icon = new ImageIcon(getClass().getResource("/trunpi.GIF"));
     JLabel fundo = new JLabel(icon);
 
@@ -21,6 +22,7 @@ public class TelaVitoria extends javax.swing.JFrame {
     public TelaVitoria() {
         this.setVisible(true);
         initComponents();
+        this.setLocationRelativeTo(null);
         icon.setImage(icon.getImage().getScaledInstance(trunpi.getWidth(), trunpi.getHeight(), 3));
         trunpi.setIcon(icon);
     }
@@ -53,6 +55,11 @@ public class TelaVitoria extends javax.swing.JFrame {
         jButton1.setText("JOGAR NOVAMENTE");
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,6 +122,11 @@ public class TelaVitoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        new TelaInicial().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

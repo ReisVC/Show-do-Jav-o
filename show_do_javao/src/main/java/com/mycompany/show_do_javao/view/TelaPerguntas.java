@@ -28,6 +28,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
     String respostaV;
     String respostaE;
     int dinheiro = 1;
+    int custoAjuda = 3;
 
     /**
      * Creates new form NewJFrame
@@ -61,6 +62,9 @@ public class TelaPerguntas extends javax.swing.JFrame {
         buttons.add(resposta3);
         buttons.add(resposta4);
         this.respostaV = PerguntaController.getPergunta(perguntas, pergunta, resposta1, resposta2, resposta3, resposta4);
+        valendo1.setText("Valendo: " + dinheiro + " MIL");
+        valendo2.setText("Valendo: 0");
+        custoLabel.setText("Disponíveis: " + custoAjuda);
     }
 
     /**
@@ -84,9 +88,9 @@ public class TelaPerguntas extends javax.swing.JFrame {
         parar = new javax.swing.JTextField();
         ajuda = new javax.swing.JTextField();
         logo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        valendo1 = new javax.swing.JLabel();
+        custoLabel = new javax.swing.JLabel();
+        valendo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -209,17 +213,17 @@ public class TelaPerguntas extends javax.swing.JFrame {
 
         logo.setText("jLabel1");
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel1.setText("Valendo:");
+        valendo1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        valendo1.setForeground(new java.awt.Color(255, 204, 0));
+        valendo1.setText("Valendo:");
 
-        jLabel2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel2.setText("Custando:");
+        custoLabel.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        custoLabel.setForeground(new java.awt.Color(255, 204, 0));
+        custoLabel.setText("Disponíveis:");
 
-        jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel3.setText("Valendo:");
+        valendo2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        valendo2.setForeground(new java.awt.Color(255, 204, 0));
+        valendo2.setText("Valendo:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -244,15 +248,15 @@ public class TelaPerguntas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(valendo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(escolher, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(parar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(valendo2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(custoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ajuda, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -273,9 +277,9 @@ public class TelaPerguntas extends javax.swing.JFrame {
                 .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(valendo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(custoLabel)
+                    .addComponent(valendo2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(escolher, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,9 +315,14 @@ public class TelaPerguntas extends javax.swing.JFrame {
         if (respostaE.equals(respostaV)) {
             this.respostaV = PerguntaController.getPergunta(perguntas, pergunta, resposta1, resposta2, resposta3, resposta4);
             colorRed();
+            valendo2.setText("Valendo: " + dinheiro + "MIL");
             dinheiro *= 2;
-            
+            valendo1.setText("Valendo: " + dinheiro + " MIL");
             if(dinheiro > 1000) {
+                valendo1.setText("Valendo: 1 MILHÃO");
+            }
+            
+            if(dinheiro > 1025) {
                  new TelaVitoria().setVisible(true);
                  this.dispose();
             }
@@ -343,7 +352,13 @@ public class TelaPerguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_ajudaActionPerformed
 
     private void ajudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajudaMouseClicked
-       new TelaAjuda().setVisible(true);   // TODO add your handling code here:
+        if(custoAjuda < 1) {
+            ajuda.setEditable(false);
+        } else {
+        custoAjuda -= 1;
+        new TelaAjuda().setVisible(true);
+        }
+        custoLabel.setText("Disponíveis: " + custoAjuda);
     }//GEN-LAST:event_ajudaMouseClicked
 
     private void pararMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pararMouseClicked
@@ -410,10 +425,8 @@ public class TelaPerguntas extends javax.swing.JFrame {
     private javax.swing.JTextField ajuda;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel custoLabel;
     private javax.swing.JTextField escolher;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField parar;
@@ -422,5 +435,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
     private javax.swing.JTextField resposta2;
     private javax.swing.JTextField resposta3;
     private javax.swing.JTextField resposta4;
+    private javax.swing.JLabel valendo1;
+    private javax.swing.JLabel valendo2;
     // End of variables declaration//GEN-END:variables
 }
