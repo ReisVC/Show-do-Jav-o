@@ -24,5 +24,5 @@ Abra o projeto na IDE Apache NetBeans.
 Execute a raíz do projeto pelo NetBeans com o atalho F6, ou pressione com o botão direito na raíz do projeto e clique na opção "Run".
 
 ## Autores
- - [ReisVC](github.com/ReisVC)
- - [LukasLuut](github.com/LukasLuut)
+ - [ReisVC](www.github.com/reisvC)
+ - [LukasLuut](www.github.com/lukasluut)
