@@ -186,6 +186,16 @@ public class TelaPerguntas extends javax.swing.JFrame {
         ajuda.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
         ajuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ajuda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        ajuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ajudaMouseClicked(evt);
+            }
+        });
+        ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajudaActionPerformed(evt);
+            }
+        });
 
         logo.setText("jLabel1");
 
@@ -288,6 +298,14 @@ public class TelaPerguntas extends javax.swing.JFrame {
         colorBlue(resposta4);
         respostaE = resposta4.getText();        // TODO add your handling code here:
     }//GEN-LAST:event_resposta4MouseClicked
+
+    private void ajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajudaActionPerformed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_ajudaActionPerformed
+
+    private void ajudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajudaMouseClicked
+       new TelaAjuda().setVisible(true);   // TODO add your handling code here:
+    }//GEN-LAST:event_ajudaMouseClicked
 
     /**
      * @param args the command line arguments
