@@ -4,7 +4,12 @@
 
 package com.mycompany.show_do_javao;
 
-import com.mycompany.show_do_javao.view.TelaPerguntas;
+
+
+
+
+import com.mycompany.show_do_javao.service.BancoPerguntas;
+
 
 /**
  *
@@ -13,6 +18,11 @@ import com.mycompany.show_do_javao.view.TelaPerguntas;
 public class Show_do_javao {
 
     public static void main(String[] args) {
-        new TelaPerguntas().setVisible(true);
+
+       
+        
+       
+        
+
     }
 }

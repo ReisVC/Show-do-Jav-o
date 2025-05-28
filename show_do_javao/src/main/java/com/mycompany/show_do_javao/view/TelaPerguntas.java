@@ -4,6 +4,9 @@
  */
 package com.mycompany.show_do_javao.view;
 
+import com.mycompany.show_do_javao.controller.PerguntaController;
+import com.mycompany.show_do_javao.service.BancoPerguntas;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -20,6 +23,9 @@ public class TelaPerguntas extends javax.swing.JFrame {
     ImageIcon icon = new ImageIcon(getClass().getResource("/SdMLogo.png"));
     JLabel fundo = new JLabel(icon);
     ArrayList<JTextField> buttons = new ArrayList<>();
+    BancoPerguntas perguntas;
+    String respostaV;
+    String respostaE;
 
     /**
      * Creates new form NewJFrame
@@ -28,6 +34,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
         this.setResizable(false);
         this.setVisible(true);
         initComponents();
+        this.perguntas = new BancoPerguntas();
         this.setLocationRelativeTo(null);
         pergunta.setEditable(false);
         pergunta.setFocusable(false);
@@ -47,11 +54,11 @@ public class TelaPerguntas extends javax.swing.JFrame {
         ajuda.setFocusable(false);
         icon.setImage(icon.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), 2));
         logo.setIcon(icon);
-
         buttons.add(resposta1);
         buttons.add(resposta2);
         buttons.add(resposta3);
         buttons.add(resposta4);
+        this.respostaV = PerguntaController.getPergunta(perguntas, pergunta, resposta1, resposta2, resposta3, resposta4);
     }
 
     /**
@@ -186,35 +193,39 @@ public class TelaPerguntas extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(59, 59, 59)
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(escolher, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(parar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ajuda, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(resposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(resposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(escolher, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(parar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ajuda, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                            .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(resposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,12 +233,12 @@ public class TelaPerguntas extends javax.swing.JFrame {
                 .addComponent(resposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(escolher, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(parar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ajuda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,7 +256,8 @@ public class TelaPerguntas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resposta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta1MouseClicked
-        colorGreen(resposta1);       // TODO add your handling code here:
+        colorBlue(resposta1);
+        respostaE = resposta1.getText();// TODO add your handling code here:
     }//GEN-LAST:event_resposta1MouseClicked
 
     private void escolherMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escolherMousePressed
@@ -253,19 +265,28 @@ public class TelaPerguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_escolherMousePressed
 
     private void escolherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escolherMouseClicked
-        // TODO add your handling code here:
+        if (respostaE.equals(respostaV)) {
+            this.respostaV = PerguntaController.getPergunta(perguntas, pergunta, resposta1, resposta2, resposta3, resposta4);
+            colorRed();
+        } else {
+            pergunta.setText("ERROU");
+            colorRed();
+        }// TODO add your handling code here:
     }//GEN-LAST:event_escolherMouseClicked
 
     private void resposta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta2MouseClicked
-        colorGreen(resposta2);        // TODO add your handling code here:
+        colorBlue(resposta2);
+        respostaE = resposta2.getText();// TODO add your handling code here:
     }//GEN-LAST:event_resposta2MouseClicked
 
     private void resposta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta3MouseClicked
-        colorGreen(resposta3);         // TODO add your handling code here:
+        colorBlue(resposta3);
+        respostaE = resposta3.getText();// TODO add your handling code here:
     }//GEN-LAST:event_resposta3MouseClicked
 
     private void resposta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta4MouseClicked
-        colorGreen(resposta4);         // TODO add your handling code here:
+        colorBlue(resposta4);
+        respostaE = resposta4.getText();        // TODO add your handling code here:
     }//GEN-LAST:event_resposta4MouseClicked
 
     /**
@@ -304,7 +325,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
         });
     }
 
-    private void colorGreen(JTextField label) {
+    private void colorBlue(JTextField label) {
         buttons.forEach(button -> {
             if (button.getText().equals(label.getText())) {
                 label.setBackground(Color.BLUE); // Verde claro com transparência
@@ -313,7 +334,10 @@ public class TelaPerguntas extends javax.swing.JFrame {
                 button.setBackground(Color.RED);
             }
 
-        });
+        });    
+    }
+    private void colorRed() {
+        buttons.forEach(button -> {button.setBackground(Color.RED);});
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
