@@ -9,6 +9,7 @@ package com.mycompany.show_do_javao;
 
 
 import com.mycompany.show_do_javao.service.BancoPerguntas;
+import com.mycompany.show_do_javao.view.TelaInicial;
 
 
 /**
@@ -18,11 +19,6 @@ import com.mycompany.show_do_javao.service.BancoPerguntas;
 public class Show_do_javao {
 
     public static void main(String[] args) {
-
-       
-        
-       
-        
-
+        new TelaInicial().setVisible(true);
     }
 }

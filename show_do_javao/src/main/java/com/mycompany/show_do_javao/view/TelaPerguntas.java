@@ -12,6 +12,7 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -26,6 +27,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
     BancoPerguntas perguntas;
     String respostaV;
     String respostaE;
+    int dinheiro = 1;
 
     /**
      * Creates new form NewJFrame
@@ -177,6 +179,11 @@ public class TelaPerguntas extends javax.swing.JFrame {
         parar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
         parar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         parar.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        parar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pararMouseClicked(evt);
+            }
+        });
 
         ajuda.setBackground(new java.awt.Color(255, 204, 0));
         ajuda.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
@@ -278,6 +285,12 @@ public class TelaPerguntas extends javax.swing.JFrame {
         if (respostaE.equals(respostaV)) {
             this.respostaV = PerguntaController.getPergunta(perguntas, pergunta, resposta1, resposta2, resposta3, resposta4);
             colorRed();
+            dinheiro *= 2;
+            
+            if(dinheiro > 1000) {
+                // new TelaVitoria().setVisible(true)
+                // this.dispose;
+            }
         } else {
             pergunta.setText("ERROU");
             colorRed();
@@ -306,6 +319,15 @@ public class TelaPerguntas extends javax.swing.JFrame {
     private void ajudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajudaMouseClicked
        new TelaAjuda().setVisible(true);   // TODO add your handling code here:
     }//GEN-LAST:event_ajudaMouseClicked
+
+    private void pararMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pararMouseClicked
+        int reply = JOptionPane.showConfirmDialog(this, "Deseja realmente parar?", "Confirmação", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION)
+        {
+          new TelaInicial().setVisible(true);
+          this.dispose();
+        }
+    }//GEN-LAST:event_pararMouseClicked
 
     /**
      * @param args the command line arguments

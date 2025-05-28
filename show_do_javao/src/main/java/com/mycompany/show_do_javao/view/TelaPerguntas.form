@@ -327,6 +327,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pararMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="ajuda">
           <Properties>
