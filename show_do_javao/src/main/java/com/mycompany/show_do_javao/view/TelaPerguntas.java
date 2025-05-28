@@ -327,8 +327,9 @@ public class TelaPerguntas extends javax.swing.JFrame {
                  this.dispose();
             }
         } else {
-            pergunta.setText("ERROU");
+            new TelaDerrota().setVisible(true);
             colorRed();
+            this.dispose();
         }// TODO add your handling code here:
     }//GEN-LAST:event_escolherMouseClicked
 
