@@ -288,8 +288,8 @@ public class TelaPerguntas extends javax.swing.JFrame {
             dinheiro *= 2;
             
             if(dinheiro > 1000) {
-                // new TelaVitoria().setVisible(true)
-                // this.dispose;
+                 new TelaVitoria().setVisible(true);
+                 this.dispose();
             }
         } else {
             pergunta.setText("ERROU");
