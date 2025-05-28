@@ -5,76 +5,53 @@
 package com.mycompany.show_do_javao.view;
 
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
- * @author Aluno
+ * @author Luut
  */
 public class TelaPerguntas extends javax.swing.JFrame {
-ImageIcon icon = new ImageIcon(getClass().getResource("/imagemPerguntas.png"));
-JLabel fundo = new JLabel(icon);
+
+    ImageIcon icon = new ImageIcon(getClass().getResource("/SdMLogo.png"));
+    JLabel fundo = new JLabel(icon);
+    ArrayList<JTextField> buttons = new ArrayList<>();
+
     /**
-     * Creates new form TelaPerguntas
+     * Creates new form NewJFrame
      */
     public TelaPerguntas() {
         this.setResizable(false);
         this.setVisible(true);
         initComponents();
         this.setLocationRelativeTo(null);
-        icon.setImage(icon.getImage().getScaledInstance(this.getWidth(), this.getHeight(), 2));
-        this.setContentPane(fundo);
-        fundo.setLayout(null);
-        fundo.add(labelPergunta);
-        //Cor do botão A
-        botaoA.setOpaque(false);
-        botaoA.setContentAreaFilled(false);
-        botaoA.setBorderPainted(false);
-        botaoA.setForeground(Color.WHITE);
-        add(botaoA);
-        //Cor do botão B
-        botaoB.setOpaque(false);
-        botaoB.setContentAreaFilled(false);
-        botaoB.setBorderPainted(false);
-        botaoB.setForeground(Color.WHITE);
-        add(botaoB);
-        //Cor do botão C
-        botaoC.setOpaque(false);
-        botaoC.setContentAreaFilled(false);
-        botaoC.setBorderPainted(false);
-        botaoC.setForeground(Color.WHITE);
-        add(botaoC);
-        //Cor do botão D
-        botaoD.setOpaque(false);
-        botaoD.setContentAreaFilled(false);
-        botaoD.setBorderPainted(false);
-        botaoD.setForeground(Color.WHITE);
-        add(botaoD);
-         //Cor do botão ESCOLHER
-        btnEscolher.setOpaque(false);
-        btnEscolher.setContentAreaFilled(false);
-        btnEscolher.setBorderPainted(false);
-        btnEscolher.setForeground(Color.RED);
-        add(btnEscolher);
-         //Cor do botão PARAR
-        btnParar.setOpaque(false);
-        btnParar.setContentAreaFilled(false);
-        btnParar.setBorderPainted(false);
-        btnParar.setForeground(Color.RED);
-        add(btnParar);
-         //Cor do botão AJUDA
-        btnAjuda.setOpaque(false);
-        btnAjuda.setContentAreaFilled(false);
-        btnAjuda.setBorderPainted(false);
-        btnAjuda.setForeground(Color.RED);
-        add(btnAjuda);
-        //Label indicador das opções
-        
-      
-        
+        pergunta.setEditable(false);
+        pergunta.setFocusable(false);
+        resposta1.setEditable(false);
+        resposta1.setFocusable(false);
+        resposta2.setEditable(false);
+        resposta2.setFocusable(false);
+        resposta3.setEditable(false);
+        resposta3.setFocusable(false);
+        resposta4.setEditable(false);
+        resposta4.setFocusable(false);
+        escolher.setEditable(false);
+        escolher.setFocusable(false);
+        parar.setEditable(false);
+        parar.setFocusable(false);
+        ajuda.setEditable(false);
+        ajuda.setFocusable(false);
+        icon.setImage(icon.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), 2));
+        logo.setIcon(icon);
+
+        buttons.add(resposta1);
+        buttons.add(resposta2);
+        buttons.add(resposta3);
+        buttons.add(resposta4);
     }
 
     /**
@@ -86,206 +63,215 @@ JLabel fundo = new JLabel(icon);
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelPergunta = new javax.swing.JLabel();
-        botaoA = new javax.swing.JButton();
-        botaoB = new javax.swing.JButton();
-        botaoC = new javax.swing.JButton();
-        botaoD = new javax.swing.JButton();
-        btnEscolher = new javax.swing.JButton();
-        btnParar = new javax.swing.JButton();
-        btnAjuda = new javax.swing.JButton();
-        C = new javax.swing.JLabel();
-        D = new javax.swing.JLabel();
-        B = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        pergunta = new javax.swing.JTextField();
+        resposta1 = new javax.swing.JTextField();
+        resposta2 = new javax.swing.JTextField();
+        resposta3 = new javax.swing.JTextField();
+        resposta4 = new javax.swing.JTextField();
+        escolher = new javax.swing.JTextField();
+        parar = new javax.swing.JTextField();
+        ajuda = new javax.swing.JTextField();
+        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelPergunta.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        labelPergunta.setForeground(new java.awt.Color(255, 255, 255));
-        labelPergunta.setText("Se seu pinto for maior que seu antebraço, qual animal você é?");
+        jPanel1.setBackground(new java.awt.Color(0, 29, 147));
 
-        botaoA.setText("Golfinho");
-        botaoA.setBorder(null);
-        botaoA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        botaoA.addMouseListener(new java.awt.event.MouseAdapter() {
+        pergunta.setBackground(new java.awt.Color(153, 0, 0));
+        pergunta.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        pergunta.setForeground(new java.awt.Color(255, 255, 255));
+        pergunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pergunta.setText("Pergunta 1");
+        pergunta.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        pergunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pergunta.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+
+        resposta1.setBackground(new java.awt.Color(255, 0, 0));
+        resposta1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        resposta1.setForeground(new java.awt.Color(255, 255, 255));
+        resposta1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        resposta1.setText("Resposta 1");
+        resposta1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        resposta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resposta1.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        resposta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resposta1MouseClicked(evt);
+            }
+        });
+
+        resposta2.setBackground(new java.awt.Color(255, 0, 0));
+        resposta2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        resposta2.setForeground(new java.awt.Color(255, 255, 255));
+        resposta2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        resposta2.setText("Resposta 2");
+        resposta2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        resposta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resposta2.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        resposta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resposta2MouseClicked(evt);
+            }
+        });
+
+        resposta3.setBackground(new java.awt.Color(255, 0, 0));
+        resposta3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        resposta3.setForeground(new java.awt.Color(255, 255, 255));
+        resposta3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        resposta3.setText("Resposta 3");
+        resposta3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        resposta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resposta3.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        resposta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resposta3MouseClicked(evt);
+            }
+        });
+
+        resposta4.setBackground(new java.awt.Color(255, 0, 0));
+        resposta4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        resposta4.setForeground(new java.awt.Color(255, 255, 255));
+        resposta4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        resposta4.setText("Resposta 4");
+        resposta4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        resposta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resposta4.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        resposta4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resposta4MouseClicked(evt);
+            }
+        });
+
+        escolher.setBackground(new java.awt.Color(255, 204, 0));
+        escolher.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        escolher.setForeground(new java.awt.Color(204, 0, 0));
+        escolher.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        escolher.setText("ESCOLHER");
+        escolher.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        escolher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        escolher.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        escolher.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                escolherMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                botaoAMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                botaoAMouseReleased(evt);
-            }
-        });
-        botaoA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAActionPerformed(evt);
+                escolherMousePressed(evt);
             }
         });
 
-        botaoB.setText("Gremista");
-        botaoB.setBorder(null);
-        botaoB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        botaoB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botaoBMouseClicked(evt);
-            }
-        });
+        parar.setBackground(new java.awt.Color(255, 204, 0));
+        parar.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        parar.setForeground(new java.awt.Color(204, 0, 0));
+        parar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        parar.setText("PARAR");
+        parar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        parar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        parar.setDisabledTextColor(new java.awt.Color(255, 255, 255));
 
-        botaoC.setText("Roxo");
-        botaoC.setBorder(null);
-        botaoC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        botaoC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botaoCMouseClicked(evt);
-            }
-        });
+        ajuda.setBackground(new java.awt.Color(255, 204, 0));
+        ajuda.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        ajuda.setForeground(new java.awt.Color(204, 0, 0));
+        ajuda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ajuda.setText("AJUDA");
+        ajuda.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 51, 0), new java.awt.Color(153, 51, 0)));
+        ajuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ajuda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
 
-        botaoD.setText("Tamanduá-Bandeira");
-        botaoD.setBorder(null);
-        botaoD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        botaoD.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botaoDMouseClicked(evt);
-            }
-        });
+        logo.setText("jLabel1");
 
-        btnEscolher.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
-        btnEscolher.setForeground(new java.awt.Color(255, 0, 0));
-        btnEscolher.setText("ESCOLHER");
-        btnEscolher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btnParar.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
-        btnParar.setForeground(new java.awt.Color(255, 51, 51));
-        btnParar.setText("PARAR");
-        btnParar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btnAjuda.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
-        btnAjuda.setForeground(new java.awt.Color(255, 0, 0));
-        btnAjuda.setText("AJUDA");
-        btnAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        C.setText("A");
-
-        D.setText("A");
-
-        B.setText("A");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(escolher, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(parar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ajuda, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resposta3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(escolher, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(parar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajuda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEscolher, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAjuda, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(C, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(B, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(D, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(9, 9, 9)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(botaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(botaoC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(botaoB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                                        .addComponent(botaoA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                .addGap(112, 445, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(labelPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoA, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoB, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoC, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(C, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoD, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(D, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEscolher, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAjuda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAActionPerformed
-    
-           botaoA.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                botaoA.setBackground(new Color(0, 255, 0, 100)); // Verde translúcido
-                botaoA.setOpaque(true);
-                botaoA.setContentAreaFilled(true);
-            }
+    private void resposta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta1MouseClicked
+        colorGreen(resposta1);       // TODO add your handling code here:
+    }//GEN-LAST:event_resposta1MouseClicked
 
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                botaoA.setOpaque(false);
-                botaoA.setContentAreaFilled(false);
-            }
-        });
+    private void escolherMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escolherMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_escolherMousePressed
 
-      
-       // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAActionPerformed
+    private void escolherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escolherMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_escolherMouseClicked
 
-    private void botaoAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoAMousePressed
-botaoA.setBackground(new Color(0, 255, 0, 50)); // Verde claro com transparência
-botaoA.setOpaque(true);
-//botaoA.setContentAreaFilled(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAMousePressed
+    private void resposta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta2MouseClicked
+        colorGreen(resposta2);        // TODO add your handling code here:
+    }//GEN-LAST:event_resposta2MouseClicked
 
-    private void botaoAMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoAMouseReleased
-    // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAMouseReleased
+    private void resposta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta3MouseClicked
+        colorGreen(resposta3);         // TODO add your handling code here:
+    }//GEN-LAST:event_resposta3MouseClicked
 
-    private void botaoBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoBMouseClicked
-botaoB.setBackground(new Color(0, 255, 0, 50)); // Verde claro com transparência
-botaoB.setOpaque(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoBMouseClicked
-
-    private void botaoCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCMouseClicked
-botaoC.setBackground(new Color(0, 255, 0, 50)); // Verde claro com transparência
-botaoC.setOpaque(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoCMouseClicked
-
-    private void botaoDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoDMouseClicked
-botaoD.setBackground(new Color(0, 255, 0, 50)); // Verde claro com transparência
-botaoD.setOpaque(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoDMouseClicked
+    private void resposta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resposta4MouseClicked
+        colorGreen(resposta4);         // TODO add your handling code here:
+    }//GEN-LAST:event_resposta4MouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -308,6 +294,7 @@ botaoD.setOpaque(true);        // TODO add your handling code here:
             java.util.logging.Logger.getLogger(TelaPerguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -317,17 +304,30 @@ botaoD.setOpaque(true);        // TODO add your handling code here:
         });
     }
 
+    private void colorGreen(JTextField label) {
+        buttons.forEach(button -> {
+            if (button.getText().equals(label.getText())) {
+                label.setBackground(Color.BLUE); // Verde claro com transparência
+                label.setOpaque(true);
+            } else {
+                button.setBackground(Color.RED);
+            }
+
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel B;
-    private javax.swing.JLabel C;
-    private javax.swing.JLabel D;
-    private javax.swing.JButton botaoA;
-    private javax.swing.JButton botaoB;
-    private javax.swing.JButton botaoC;
-    private javax.swing.JButton botaoD;
-    private javax.swing.JButton btnAjuda;
-    private javax.swing.JButton btnEscolher;
-    private javax.swing.JButton btnParar;
-    private javax.swing.JLabel labelPergunta;
+    private javax.swing.JTextField ajuda;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JTextField escolher;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logo;
+    private javax.swing.JTextField parar;
+    private javax.swing.JTextField pergunta;
+    private javax.swing.JTextField resposta1;
+    private javax.swing.JTextField resposta2;
+    private javax.swing.JTextField resposta3;
+    private javax.swing.JTextField resposta4;
     // End of variables declaration//GEN-END:variables
 }
